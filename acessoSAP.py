@@ -8,7 +8,7 @@ from tkinter import messagebox
 class SapGui():
     def __init__(self):
         self.path = r"C:\Program Files (x86)\SAP\FrontEnd\SAPgui\sapshcut.exe"  # Use o sapshcut.exe
-        subprocess.Popen([self.path, "-system=PRD", "-client=200", "-user=cs314073", "-pw=d@606060"])  # Inicie diretamente a conexão
+        subprocess.Popen([self.path, "-system=PRD", "-client=200", "-user=USUARIO_SAP", "-pw=SENHA_SAP"])  # Inicie diretamente a conexão
         time.sleep(5)
 
         try:
@@ -42,8 +42,8 @@ class SapGui():
     def sapLogin(self):
         try:
             self.session.findById("wnd[0]/usr/txtRSYST-MANDT").text = "200"
-            self.session.findById("wnd[0]/usr/txtRSYST-BNAME").text = "cs314073"
-            self.session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = "d@606060"
+            self.session.findById("wnd[0]/usr/txtRSYST-BNAME").text = "USUARIO_SAP"
+            self.session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = "SENHA_SAP"
             self.session.findById("wnd[0]/usr/txtRSYST-LANGU").text = "PT"
             self.session.findById("wnd[0]").sendVKey(0)
             messagebox.showinfo("Sucesso", "Login com sucesso!")
